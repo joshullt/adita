@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adita</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-image: url('ruta/a/fondo_corazones.png'); /* Agrega una imagen de fondo de corazones */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        .heart {
+            font-size: 2em;
+            color: #ff4081;
+            margin: 10px;
+        }
+        .cloud {
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            cursor: pointer;
+            position: relative;
+        }
+        .cloud img {
+            max-width: 100%;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .cloud::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: rgba(255, 20, 147, 0.3); /* Color rosa claro */
+            border-radius: 30px;
+            z-index: 0; /* Envuelve la imagen */
+        }
+        .heart-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: #ff4081;
+            z-index: 2; /* Se asegura que el corazón esté encima */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            text-align: center;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 20px;
+            margin: 10% auto; /* Ajusta la posición */
+            padding: 30px; /* Aumenta el padding */
+            width: 80%;
+            max-width: 600px; /* Aumenta el tamaño máximo */
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adita</h1>
+    <div class="heart">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+
+    <button onclick="playAudio()">Reproducir Música</button> <!-- Botón para reproducir la música -->
+    <button onclick="pauseAudio()">Pausar Música</button> <!-- Botón para pausar la música -->
+
+    <div class="cloud" onclick="openModal('te amo mucho mi bebe.')">
+        <img src="50e36b87-88dd-4ee4-a444-9a0a4b713f4e.jpg" alt="te amo mi bebe">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+
+    <div class="cloud" onclick="openModal('te amo mucho mi papalover')">
+        <img src="be79955b-5a52-466c-bf7f-199f49dabc27.jpg" alt="te amo mi papalover">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+
+    <div class="cloud" onclick="openModal('te amo mucho mi bailarina')">
+        <img src="950a0bd5-13a1-4ced-829d-26ae6fa3297b.jpg" alt="te amo mi bailarina">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+
+    <div class="cloud" onclick="openModal('te amo mucho mi dormilona')">
+        <img src="2ecb2563-eb53-4ffb-b957-5c8380b62e2b.jpg" alt="te amo mi dormilona">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+
+    <div class="cloud" onclick="openModal('te amo mucho mi inteligente')">
+        <img src="a38d1849-e477-44b2-88ba-19460250d11e.jpg" alt="te amo mi inteligente">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+    
+    <div class="cloud" onclick="openModal('te amo mucho mi adita:c <3')">
+        <img src="9dbfdc0d-b592-4421-a386-d8a5fb715c4b.jpg" alt="te amo mi adita">
+        <div class="heart-overlay">&lt;3</div>
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage" style="font-size: 1.5em;"></p> <!-- Ajusta el tamaño del texto -->
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="Apocalypse - Cigarettes After Sex - Cigarettes After Sex (youtube).mp3" type="audio/mpeg"> <!-- Asegúrate de que la ruta sea correcta -->
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="footer">
+        <a href="index.html" style="color: #ff4081; font-size: 1.2em; text-decoration: none;">y siempre te amare</a>
+    </div>
+
+    <script>
+        function openModal(message) {
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('myModal').style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+        function playAudio() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.play();
+        }
+        function pauseAudio() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.pause();
+        }
+    </script>
+</body>
+</html>
